@@ -526,6 +526,10 @@
                                 ],
                                 "env": [
                                     {
+                                        "name": "DB_SERVICE_PREFIX_MAPPING",
+                                        "value": "${APPLICATION_NAME}-postgresql=DB"
+                                    },
+                                    {
                                         "name": "ENV_FILES",
                                         "value": "/opt/eap/standalone/configuration/*.env"
                                     },

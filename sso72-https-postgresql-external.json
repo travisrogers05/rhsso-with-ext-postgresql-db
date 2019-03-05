@@ -586,6 +586,14 @@
                                 ],
                                 "env": [
                                     {
+                                        "name": "LOGGING_SCRIPT_DEBUG",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "name": "SCRIPT_DEBUG",
+                                        "value": "true"
+                                    },
+                                    {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
                                         "value": "DB_POSTGRESQL=DB"
                                     },

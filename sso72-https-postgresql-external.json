@@ -587,7 +587,7 @@
                                 "env": [
                                     {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
-                                        "value": "DB-postgresql=DB"
+                                        "value": "DB_POSTGRESQL=DB"
                                     },
                                     {
                                         "name": "DB_JNDI",

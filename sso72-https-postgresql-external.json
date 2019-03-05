@@ -213,6 +213,20 @@
             "required": true
         },
         {
+            "displayName": "Database Service Host",
+            "description": "Database Service Host",
+            "name": "DB_POSTGRESQL_SERVICE_HOST",
+            "value": "postgresql-02325498-postgres.apps.spent9.lab.rdu2.cee.redhat.com",
+            "required": true
+        },
+        {
+            "displayName": "Database Service Port",
+            "description": "Database Service Port",
+            "name": "DB_POSTGRESQL_SERVICE_PORT",
+            "value": "80",
+            "required": true
+        },
+        {
             "displayName": "ImageStream Namespace",
             "description": "Namespace in which the ImageStreams for Red Hat Middleware images are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project.",
             "name": "IMAGE_STREAM_NAMESPACE",

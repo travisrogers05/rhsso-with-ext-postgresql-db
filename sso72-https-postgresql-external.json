@@ -617,7 +617,7 @@
                                     },
                                     {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
-                                        "value": "DB_POSTGRESQL=DB"
+                                        "value": "DB-POSTGRESQL=DB"
                                     },
                                     {
                                         "name": "DB_JNDI",
@@ -637,7 +637,7 @@
                                     },
                                     {
                                         "name": "TX_DATABASE_PREFIX_MAPPING",
-                                        "value": "DB_POSTGRESQL=DB"
+                                        "value": "DB-POSTGRESQL=DB"
                                     },
                                     {
                                         "name": "DB_MIN_POOL_SIZE",

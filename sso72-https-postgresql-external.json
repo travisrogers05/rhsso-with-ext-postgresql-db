@@ -594,6 +594,14 @@
                                         "value": "true"
                                     },
                                     {
+                                        "name": "DB_POSTGRESQL_SERVICE_HOST",
+                                        "value": "${DB_POSTGRESQL_SERVICE_HOST}"
+                                    },
+                                    {
+                                        "name": "DB_POSTGRESQL_SERVICE_PORT",
+                                        "value": "${DB_POSTGRESQL_SERVICE_PORT}"
+                                    },
+                                    {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
                                         "value": "DB_POSTGRESQL=DB"
                                     },

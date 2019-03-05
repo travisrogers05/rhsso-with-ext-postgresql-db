@@ -607,7 +607,7 @@
                                     },
                                     {
                                         "name": "TX_DATABASE_PREFIX_MAPPING",
-                                        "value": "${APPLICATION_NAME}-postgresql=DB"
+                                        "value": "DB_POSTGRESQL=DB"
                                     },
                                     {
                                         "name": "DB_MIN_POOL_SIZE",

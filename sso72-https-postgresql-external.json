@@ -297,6 +297,13 @@
             "name": "MEMORY_LIMIT",
             "value": "1Gi",
             "required": false
+        },
+        {
+            "displayName": "NonXA Datasource",
+            "description": "NonXA Datasource",
+            "name": "NON_XA_DATASOURCE",
+            "value": "true",
+            "required": false
         }
     ],
     "objects": [

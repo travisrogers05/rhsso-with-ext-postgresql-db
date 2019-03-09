@@ -311,6 +311,13 @@
             "name": "DB_NONXA",
             "value": "true",
             "required": false
+        },
+        {
+            "displayName": "DB_URL",
+            "description": "DB_URL",
+            "name": "DB_URL",
+            "value": "",
+            "required": false
         }
     ],
     "objects": [
@@ -636,6 +643,10 @@
                                     {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
                                         "value": "SSO_POSTGRESQL=DB"
+                                    },
+                                    {
+                                        "name": "DB_URL",
+                                        "value": "jdbc:postgresql://postgresql-02325498-postgres.apps.spent9.lab.rdu2.cee.redhat.com:80/rhsso?sslmode=require&ssl=true"
                                     },
                                     {
                                         "name": "DB_NONXA",

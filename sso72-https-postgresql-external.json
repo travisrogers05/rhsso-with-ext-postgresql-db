@@ -638,7 +638,7 @@
                                         "value": "SSO_POSTGRESQL=SSO"
                                     },
                                     {
-                                        "name": "DB_URL",
+                                        "name": "SSO_URL",
                                         "value": "jdbc:postgresql://postgresql-02325498-postgres.apps.spent9.lab.rdu2.cee.redhat.com:80/rhsso?sslmode=require&ssl=true"
                                     },
                                     {

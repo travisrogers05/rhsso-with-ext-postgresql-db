@@ -56,15 +56,15 @@ Create SSO cert
 
 `openssl x509 -trustout -req -CA $CACERT -CAkey $CAKEY -in $SSOSIGNREQ -out $SSOCERT -days 365 -CAcreateserial -passin pass:$CAPASS`
 
-Create CA cert to HTTPS keystore
+Add CA cert to HTTPS keystore
 
 `keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD`
 
-Create SSO cert to HTTPS keystore
+Add SSO cert to HTTPS keystore
 
 `keytool -import -noprompt -trustcacerts -file $SSOCERT -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD`
 
-Create CA cert to SSO truststore
+Add CA cert to SSO truststore
 
 `keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $SSO_TRUSTSTORE -keypass $CAPASS -storepass $CAPASS`
 

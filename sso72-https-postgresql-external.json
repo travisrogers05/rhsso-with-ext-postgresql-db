@@ -257,6 +257,20 @@
             "required": false
         },
         {
+            "displayName": "Postgresql service host",
+            "description": "The host for the postgresql service.",
+            "name": "SSO_POSTGRESQL_SERVICE_HOST",
+            "value": "postgres-94.hosts.mwqe.eng.bos.redhat.com",
+            "required": false
+        },
+        {
+            "displayName": "Postgresql service port",
+            "description": "The port for the postgresql service.",
+            "name": "SSO_POSTGRESQL_SERVICE_PORT",
+            "value": "5432",
+            "required": false
+        },
+        {
             "displayName": "RH-SSO Trust Store",
             "description": "The name of the truststore file within the secret (e.g. truststore.jks)",
             "name": "SSO_TRUSTSTORE",
@@ -595,11 +609,11 @@
                                     },
                                     {
                                         "name": "DB_USERNAME",
-                                        "value": "${DB_USERNAME}"
+                                        "value": "${SSODB_USERNAME}"
                                     },
                                     {
                                         "name": "DB_PASSWORD",
-                                        "value": "${DB_PASSWORD}"
+                                        "value": "${SSODB_PASSWORD}"
                                     },
                                     {
                                         "name": "DB_DATABASE",
@@ -712,6 +726,14 @@
                                     {
                                         "name": "SSO_SERVICE_PASSWORD",
                                         "value": "${SSO_SERVICE_PASSWORD}"
+                                    },
+                                    {
+                                        "name": "SSO_POSTGRESQL_SERVICE_HOST",
+                                        "value": "${SSO_POSTGRESQL_SERVICE_HOST}"
+                                    },
+                                    {
+                                        "name": "SSO_POSTGRESQL_SERVICE_PORT",
+                                        "value": "${SSO_POSTGRESQL_SERVICE_PORT}"
                                     },
                                     {
                                         "name": "SSO_TRUSTSTORE",

@@ -213,20 +213,6 @@
             "required": true
         },
         {
-            "displayName": "Database Service Host",
-            "description": "Database Service Host",
-            "name": "SSO_POSTGRESQL_SERVICE_HOST",
-            "value": "postgresql-02325498-postgres.apps.spent9.lab.rdu2.cee.redhat.com",
-            "required": true
-        },
-        {
-            "displayName": "Database Service Port",
-            "description": "Database Service Port",
-            "name": "SSO_POSTGRESQL_SERVICE_PORT",
-            "value": "80",
-            "required": true
-        },
-        {
             "displayName": "ImageStream Namespace",
             "description": "Namespace in which the ImageStreams for Red Hat Middleware images are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project.",
             "name": "IMAGE_STREAM_NAMESPACE",
@@ -296,20 +282,6 @@
             "description": "Container memory limit.",
             "name": "MEMORY_LIMIT",
             "value": "1Gi",
-            "required": false
-        },
-        {
-            "displayName": "NonXA Datasource",
-            "description": "NonXA Datasource",
-            "name": "NON_XA_DATASOURCE",
-            "value": "true",
-            "required": false
-        },
-        {
-            "displayName": "NonXA",
-            "description": "NonXA",
-            "name": "DB_NONXA",
-            "value": "true",
             "required": false
         }
     ],
@@ -614,36 +586,8 @@
                                 ],
                                 "env": [
                                     {
-                                        "name": "LOGGING_SCRIPT_DEBUG",
-                                        "value": "true"
-                                    },
-                                    {
-                                        "name": "SCRIPT_DEBUG",
-                                        "value": "true"
-                                    },
-                                    {
-                                        "name": "NON_XA_DATASOURCE",
-                                        "value": "true"
-                                    },
-                                    {
-                                        "name": "SSO_POSTGRESQL_SERVICE_HOST",
-                                        "value": "${SSO_POSTGRESQL_SERVICE_HOST}"
-                                    },
-                                    {
-                                        "name": "SSO_POSTGRESQL_SERVICE_PORT",
-                                        "value": "${SSO_POSTGRESQL_SERVICE_PORT}"
-                                    },
-                                    {
                                         "name": "DB_SERVICE_PREFIX_MAPPING",
-                                        "value": "SSO_POSTGRESQL=SSO"
-                                    },
-                                    {
-                                        "name": "SSO_URL",
-                                        "value": "jdbc:postgresql://postgresql-02325498-postgres.apps.spent9.lab.rdu2.cee.redhat.com:80/rhsso?sslmode=require&ssl=true"
-                                    },
-                                    {
-                                        "name": "DB_NONXA",
-                                        "value": "true"
+                                        "value": "SSO_POSTGRESQL=SSODB"
                                     },
                                     {
                                         "name": "DB_JNDI",
@@ -663,7 +607,7 @@
                                     },
                                     {
                                         "name": "TX_DATABASE_PREFIX_MAPPING",
-                                        "value": "SSO_POSTGRESQL=SSO"
+                                        "value": "SSO_POSTGRESQL=SSODB"
                                     },
                                     {
                                         "name": "DB_MIN_POOL_SIZE",

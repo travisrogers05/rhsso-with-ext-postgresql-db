@@ -260,7 +260,7 @@
             "displayName": "Postgresql service host",
             "description": "The host for the postgresql service.",
             "name": "SSO_POSTGRESQL_SERVICE_HOST",
-            "value": "postgres-94.hosts.mwqe.eng.bos.redhat.com",
+            "value": "",
             "required": false
         },
         {

@@ -608,15 +608,15 @@
                                         "value": "${DB_JNDI}"
                                     },
                                     {
-                                        "name": "DB_USERNAME",
-                                        "value": "${SSODB_USERNAME}"
+                                        "name": "SSODB_USERNAME",
+                                        "value": "${DB_USERNAME}"
                                     },
                                     {
-                                        "name": "DB_PASSWORD",
-                                        "value": "${SSODB_PASSWORD}"
+                                        "name": "SSODB_PASSWORD",
+                                        "value": "${DB_PASSWORD}"
                                     },
                                     {
-                                        "name": "DB_DATABASE",
+                                        "name": "SSODB_DATABASE",
                                         "value": "${DB_DATABASE}"
                                     },
                                     {

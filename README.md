@@ -47,40 +47,40 @@ oc create -f sso72-https-postgresql-external.json -n namespace-of-your-choosing
   openssl req -new -newkey rsa:4096 -x509 -keyout $CAKEY -out $CACERT -days 365 -subj "/CN=xpaas-sso-demo.ca" -passin pass:$CAPASS -passout pass:$CAPASS
   ~~~
 
-Create HTTPS keystore
-~~~
-keytool -genkeypair -keyalg RSA -keysize 2048 -dname "CN=$HOSTNAME_HTTPS" -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
-~~~
+  - Create HTTPS keystore
+  ~~~
+  keytool -genkeypair -keyalg RSA -keysize 2048 -dname "CN=$HOSTNAME_HTTPS" -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
+  ~~~
 
-Create HTTPS cert request
-~~~
-keytool -certreq -keyalg rsa -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -file $SSOSIGNREQ -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
-~~~
+  - Create HTTPS cert request
+  ~~~
+  keytool -certreq -keyalg rsa -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -file $SSOSIGNREQ -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
+  ~~~
 
-Create SSO cert
-~~~
-openssl x509 -trustout -req -CA $CACERT -CAkey $CAKEY -in $SSOSIGNREQ -out $SSOCERT -days 365 -CAcreateserial -passin pass:$CAPASS
-~~~
+  - Create SSO cert
+  ~~~
+  openssl x509 -trustout -req -CA $CACERT -CAkey $CAKEY -in $SSOSIGNREQ -out $SSOCERT -days 365 -CAcreateserial -passin pass:$CAPASS
+  ~~~
 
-Add CA cert to HTTPS keystore
-~~~
-keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
-~~~
+  - Add CA cert to HTTPS keystore
+  ~~~
+  keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
+  ~~~
 
-Add SSO cert to HTTPS keystore
-~~~
-keytool -import -noprompt -trustcacerts -file $SSOCERT -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
-~~~
+  - Add SSO cert to HTTPS keystore
+  ~~~
+  keytool -import -noprompt -trustcacerts -file $SSOCERT -alias $HTTPS_NAME -keystore $HTTPS_KEYSTORE -keypass $HTTPS_PASSWORD -storepass $HTTPS_PASSWORD
+  ~~~
 
-Add CA cert to SSO truststore
-~~~
-keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $SSO_TRUSTSTORE -keypass $CAPASS -storepass $CAPASS
-~~~
+  - Add CA cert to SSO truststore
+  ~~~
+  keytool -import -noprompt -trustcacerts -file $CACERT -alias $CAALIAS -keystore $SSO_TRUSTSTORE -keypass $CAPASS -storepass $CAPASS
+  ~~~
 
-Create JGROUPS keystore
-~~~
-keytool -genseckey -alias $JGROUPS_ENCRYPT_NAME -storetype JCEKS -keypass $JGROUPS_ENCRYPT_PASSWORD -storepass $JGROUPS_ENCRYPT_PASSWORD -keystore $JGROUPS_ENCRYPT_KEYSTORE
-~~~
+  - Create JGROUPS keystore
+  ~~~
+  keytool -genseckey -alias $JGROUPS_ENCRYPT_NAME -storetype JCEKS -keypass $JGROUPS_ENCRYPT_PASSWORD -storepass $JGROUPS_ENCRYPT_PASSWORD -keystore $JGROUPS_ENCRYPT_KEYSTORE
+  ~~~
 
 
 - Create one secret for all stores

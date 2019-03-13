@@ -42,10 +42,10 @@ oc create -f sso72-https-postgresql-external.json -n namespace-of-your-choosing
 
 - Create (or supply existing) certs and trust stores for encrypted communication.  I have a script for this, so you will see environment variables being referenced.  This is just for reference as you likely have your own certs and trust stores to use.  Use the appropriate values when creating the RHSSO pod in a later step.
 
-Create CA key and cert
-~~~
-openssl req -new -newkey rsa:4096 -x509 -keyout $CAKEY -out $CACERT -days 365 -subj "/CN=xpaas-sso-demo.ca" -passin pass:$CAPASS -passout pass:$CAPASS
-~~~
+  - Create CA key and cert
+  ~~~
+  openssl req -new -newkey rsa:4096 -x509 -keyout $CAKEY -out $CACERT -days 365 -subj "/CN=xpaas-sso-demo.ca" -passin pass:$CAPASS -passout pass:$CAPASS
+  ~~~
 
 Create HTTPS keystore
 ~~~

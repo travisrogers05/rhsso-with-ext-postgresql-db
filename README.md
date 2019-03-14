@@ -35,12 +35,20 @@ When the resulting container image is used to produce an RHSSO pod, the pod is c
 
 ## Steps to use this example
 
-- Create the template in your project namespace or in the openshift namespace, should you wish for the template to be viewable by other users/developers.
+- Create a project and a serviceaccount.  Then add visibility for the system servieaccount.
+
 ~~~
-oc create -f sso72-https-postgresql-external.json -n namespace-of-your-choosing
+oc new-project rhsso-ext-postgres
+oc create serviceaccount sso-service-account
+oc policy add-role-to-user view system:serviceaccount:$(oc project -q):sso-service-account
 ~~~
 
-- Create (or supply existing) certs and trust stores for encrypted communication.  I have a script for this, so you will see environment variables being referenced.  This is just for reference as you likely have your own certs and trust stores to use.  Use the appropriate values when creating the RHSSO pod in a later step.
+- Create the template in your project namespace or in the openshift namespace, should you wish for the template to be viewable by other users/developers.
+~~~
+oc create -f sso72-https-postgresql-external.json -n rhsso-ext-postgres
+~~~
+
+- Create (or supply existing) certs and trust stores for encrypted communication.  I have a script for this, so you will see environment variables being referenced.  This is just for reference as you likely have your own certs and trust stores to use.  Use the appropriate values when creating the RHSSO pod in a later step.  You can find out more about these steps in the [RHSSO documentation](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html-single/red_hat_single_sign-on_for_openshift/#advanced-concepts-Configuring-Keystores).
 
   - Create CA key and cert
   ~~~
@@ -92,8 +100,6 @@ oc secret add sa/sso-service-account secret/$HTTPS_SECRET
 
 - Create the RHSSO pod passing in some parameters that you may want to specifically set.
 ~~~
-oc new-project rhsso-ext-postgres
-
 oc process openshift//sso72-https-postgresql-external \
 -p APPLICATION_NAME=rhsso-ext-postgres-app \
 -p IMAGE_STREAM_NAMESPACE=openshift \

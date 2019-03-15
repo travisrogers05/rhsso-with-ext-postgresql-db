@@ -32,6 +32,11 @@ The modified template [sso72-https-postgresql-external.json](https://github.com/
 
 When the resulting container image is used to produce an RHSSO pod, the pod is configured at deploy time to include datasource settings provided by the [datasources.env](https://github.com/travisrogers05/rhsso-with-ext-postgresql-db/blob/master/configuration/datasources.env).  The JBoss EAP configuration file (`/opt/eap/standalone/configuration/standalone-openshift.xml`) that is provided in the RHSSO container is updated to include the KeycloakDS datasource configuration backed by a Postgresql database.
 
+## Requirements
+- [Openshift command line client (oc)](https://www.okd.io/download.html)
+- Openssl
+- Java keytool
+
 
 ## Steps to use this example
 
